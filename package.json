@@ -1,0 +1,31 @@
+{
+  "name": "store-inventory-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NebiyuCS50/Store-Inventory-Manager.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/NebiyuCS50/Store-Inventory-Manager/issues"
+  },
+  "homepage": "https://github.com/NebiyuCS50/Store-Inventory-Manager#readme",
+  "dependencies": {
+    "dotenv": "^17.2.4",
+    "ejs": "^4.0.1",
+    "express": "^5.2.1",
+    "express-validator": "^7.3.1",
+    "nodemon": "^3.1.11",
+    "pg": "^8.18.0"
+  }
+}
