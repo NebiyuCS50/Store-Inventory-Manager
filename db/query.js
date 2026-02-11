@@ -2,6 +2,13 @@ async function getAllCategories() {
   const res = await pool.query("SELECT * FROM categories ORDER BY name ASC");
   return res.rows;
 }
+async function getAllCategoriesId(id) {
+  const res = await pool.query(
+    "SELECT * FROM categories WHERE id = $1 ORDER BY name ASC",
+    [id],
+  );
+  return res.rows;
+}
 const pool = require("./pool");
 
 async function getAllProduct() {
@@ -37,4 +44,5 @@ module.exports = {
   updateProduct,
   deleteProduct,
   getAllCategories,
+  getAllCategoriesId,
 };
