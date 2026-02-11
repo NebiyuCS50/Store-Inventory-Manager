@@ -147,7 +147,7 @@
             <ul>
                 <% products.forEach(product => { %>
                     <li class="product-item">
-                        <a class="product-name" href="/products/<%= product.id %>" ><%= product.name %></a>
+                        <span class="product-name"><%= product.name %></span>
                         <span class="product-details">$<%= product.price %></span>
                         <span class="product-quantity<%= product.quantity < 5 ? ' low-quantity' : '' %>">Quantity: <%= product.quantity %></span>
                         <div class="action-btn-group">
