@@ -1,3 +1,7 @@
+async function getAllCategories() {
+  const res = await pool.query("SELECT * FROM categories ORDER BY name ASC");
+  return res.rows;
+}
 const pool = require("./pool");
 
 async function getAllProduct() {
@@ -32,4 +36,5 @@ module.exports = {
   createProduct,
   updateProduct,
   deleteProduct,
+  getAllCategories,
 };
