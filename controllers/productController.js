@@ -10,20 +10,13 @@ async function getProducts(req, res) {
   }
 }
 
-async function showProductDetails(req, res) {
+async function showProductForm(req, res) {
   try {
-    const product = await db.getProductById(req.params.id);
-    if (!product) {
-      return res.status(404).send("Product not found");
-    }
-    res.render("productDetails", { product });
+    const categories = await db.getAllCategories();
+    res.render("newProduct", { categories });
   } catch (err) {
     res.status(500).send("Server Error");
   }
-}
-
-function showProductForm(req, res) {
-  res.render("newProduct");
 }
 
 async function createProduct(req, res) {
@@ -110,7 +103,6 @@ async function deleteProduct(req, res) {
 
 module.exports = {
   getProducts,
-  showProductDetails,
   showProductForm,
   createProduct,
   showEditForm,
