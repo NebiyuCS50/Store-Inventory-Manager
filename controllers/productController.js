@@ -51,10 +51,12 @@ async function createProduct(req, res) {
 async function showEditForm(req, res) {
   try {
     const product = await db.getProductById(req.params.id);
+    const categoriesId = await db.getAllCategoriesId(req.params.id);
+    const categories = await db.getAllCategories();
     if (!product) {
       return res.status(404).send("Product not found");
     }
-    res.render("editProduct", { product });
+    res.render("editProduct", { product, categoriesId, categories });
   } catch (err) {
     res.status(500).send("Server Error");
   }
@@ -86,7 +88,7 @@ async function updateProduct(req, res) {
   const { name, price, quantity, category_id } = matchedData(req);
   try {
     await db.updateProduct(req.params.id, name, price, quantity, category_id);
-    res.redirect(`/products/${req.params.id}`);
+    res.redirect(`/`);
   } catch (err) {
     res.status(500).send("Server Error");
   }
